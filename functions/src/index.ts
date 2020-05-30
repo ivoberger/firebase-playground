@@ -1,11 +1,8 @@
 import * as functions from "firebase-functions";
-import fetch from "node-fetch";
+import nextcloudCron from "./nextcloudCron";
 
 const nextcloudWebcron = functions.pubsub
   .schedule("every 5 minutes")
-  .onRun(async (context) => {
-    const response = await fetch("https://cloud.ivoberger.com/cron.php");
-    console.info(response);
-  });
+  .onRun(nextcloudCron);
 
 export { nextcloudWebcron };
