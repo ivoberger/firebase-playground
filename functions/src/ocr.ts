@@ -3,7 +3,6 @@ import * as vision from "@google-cloud/vision";
 import { countBy } from "lodash";
 
 const priceRegex = /\d{1,3},\s*\d{2}[^.\d%]/g;
-const commonWords = ["EUR", "Nr"];
 const stores = ["Alnatura", "dm", "Rewe", "Bormuth", "Unikat"];
 
 const ocrOnStorageUpload = functions.storage
