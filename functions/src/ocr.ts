@@ -18,11 +18,7 @@ const ocrOnStorageUpload = functions.storage
       textDetections.textAnnotations?.[0]?.description ?? ""
     );
     console.log(`Extracted text from image:`, text);
-    const words = sortArrayByOccurrence(
-      matchRegex(/[a-zA-Z]{2,}/g, text).filter(
-        (match) => !commonWords.includes(match)
-      )
-    );
+    const words = sortArrayByOccurrence(matchRegex(/[a-zA-Z]{2,}/g, text));
     console.log("Words", words.join(" ---- "));
     console.log(
       `Store: ${words.find(
