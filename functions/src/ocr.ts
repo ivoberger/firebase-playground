@@ -5,8 +5,9 @@ import { countBy } from "lodash";
 const priceRegex = /\d{1,3},\s*\d{2}[^.\d%]/g;
 const stores = ["Alnatura", "dm", "Rewe", "Bormuth", "Unikat"];
 
-const ocrOnStorageUpload = functions.storage
-  .object()
+const ocrOnStorageUpload = functions
+  .region("europe-west3")
+  .storage.object()
   .onFinalize(async (object) => {
     const { bucket, name } = object;
     const ocrClient = new vision.ImageAnnotatorClient();

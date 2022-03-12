@@ -1,6 +1,6 @@
 {
   "functions": {
-    "runtime": "nodejs14",
+    "runtime": "nodejs16",
     "predeploy": [
       "yarn --cwd \"$RESOURCE_DIR\" run lint",
       "yarn --cwd \"$RESOURCE_DIR\" run build"
